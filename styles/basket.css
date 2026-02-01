@@ -1,0 +1,172 @@
+#basket_responsive {
+    width: 350px;
+    background-color: #363534;
+    color: white;
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: sticky;
+    top: 24px;
+    gap: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.basket_responsive h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-family: 'Palanquin', sans-serif;
+}
+
+
+.basket-item {
+    background-color: #fdf0e4;
+    color: #363534;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+
+    span {
+        font-size: 20px;
+        font-weight: 900;
+}}
+
+.basket-items-list {
+    max-height: 390px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+}
+
+.basket-item-info {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.basket-item-price {
+    align-self: flex-end;
+    font-size: 16px;
+    color: #363534;
+}
+
+.basket-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+}
+
+.basket-controls button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #363534;
+}
+
+
+.basket-summary {
+    margin-top: 10px;
+    border-top: 1px solid #666;
+    padding-top: 16px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid white;
+}
+
+.buy-btn {
+    background-color: #e76c1f;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.buy-btn:hover {
+    transform: scale(1.02);
+}
+
+.empty-basket {
+    display: flex;
+    justify-content: center;
+}
+
+/* Dialog */
+
+.order-dialog {
+    border: none;
+    border-radius: 20px;
+    background-color: #333333;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.order-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.close-x {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.truck-icon {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.order-dialog h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.order-dialog p {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    color: #eee;
+}

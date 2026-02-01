@@ -1,0 +1,152 @@
+/* Header & Navigation */
+.header {
+    background-color: #e76c1f;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px 80px;
+}
+
+nav img {
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Content Layout */
+.content_total {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.content_restaurant {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #e76c1f;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+footer img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+/* Mobile Navigationsleiste */
+.mobile-navigation {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #363534;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+}
+
+.basket-icon-container {
+    position: relative;
+}
+
+.basket-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #e76c1f;
+    color: white;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: none; /* Wird via JS gesteuert */
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid #363534;
+}
+
+.nav-icon-box img {
+    width: 28px;
+    filter: brightness(0) invert(1);
+}
+
+/* Media Queries */
+@media (max-width: 1150px) {
+    .basket_stickyrail {
+        display: none;
+    }
+
+    .mobile-navigation {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 80px;
+    }
+
+    .content_total {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 760px) {
+    nav {
+        padding: 10px 20px;
+    }
+    .dish-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .dish-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 340px) {
+
+    .basket-item {
+        padding: 0;
+    }
+    .summary-line {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .summary-total {
+        display: flex;
+        justify-content: space-around;
+    }
+}

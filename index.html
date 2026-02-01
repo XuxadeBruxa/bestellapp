@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bestellapp</title>
+
+        <link
+            rel="shortcut icon"
+            href="./assets/img/headerburgerlogo.png"
+            type="image/x-icon"
+        />
+        <link rel="stylesheet" href="styles/standard.css" />
+        <link rel="stylesheet" href="styles/basket.css" />
+        <link rel="stylesheet" href="styles/assets.css" />
+        <link rel="stylesheet" href="style.css" />
+
+        <script src="scripts/datenbank.js"></script>
+        <script src="script.js" type="module"></script>
+    </head>
+    <body>
+        <header class="header">
+            <nav>
+                <img src="./assets/icons/Logo 02.png" alt="Logo der Webseite" />
+                <img src="./assets/icons/navmenu.png" alt="Menü" />
+            </nav>
+        </header>
+
+        <div class="headertwocontainer">
+            <img
+                class="headertwo"
+                src="./assets/img/headerpizza.png"
+                alt="Bild von einer Pizza"
+            />
+            <img
+                class="burgerlogo"
+                src="./assets/img/headerburgerlogo.png"
+                alt="Bild von einem Burger"
+            />
+            <div class="restaurant_rating">
+                <h1><span class="orange">Burger</span>Hause</h1>
+
+                <img src="./assets/icons/Frame 28.png" alt="" />
+            </div>
+            <p>The best of Burgers, Pizza and Greens, all in one great place</p>
+        </div>
+
+        <section class="content_total">
+            <div class="content_restaurant">
+                <div id="imageDishes"></div>
+            </div>
+            <div class="basket_stickyrail">
+                <aside id="basket_responsive"></aside>
+            </div>
+        </section>
+
+        <dialog id="basket_overlay" class="order-dialog">
+            <div class="dialog-content">
+                <button class="close-x" onclick="closeBasketOverlay()">
+                    ×
+                </button>
+                <div id="mobile_basket_content"></div>
+            </div>
+        </dialog>
+
+        <dialog id="success_overlay" class="order-dialog">
+            <div class="dialog-content">
+                <button class="close-x" onclick="closeOrderDialog()">×</button>
+                <img
+                    src="./assets/img/delivered.png"
+                    alt="Delivery Truck"
+                    class="truck-icon"
+                />
+                <h2>Order confirmed!</h2>
+                <p>Your food is on the way!</p>
+            </div>
+        </dialog>
+
+        <nav class="mobile-navigation">
+            <div class="nav-icon-box">
+                <img src="./assets/icons/home.png" alt="Home" />
+            </div>
+            <div class="nav-icon-box">
+                <img src="./assets/icons/user.png" alt="User" />
+            </div>
+            <div class="nav-icon-box">
+                <img src="./assets/icons/search.png" alt="Search" />
+            </div>
+            <div
+                class="nav-icon-box basket-icon-container"
+                onclick="openBasketOverlay()"
+            >
+                <img src="./assets/icons/basket.png" alt="Basket" />
+                <span id="basket_badge" class="basket-badge">0</span>
+            </div>
+        </nav>
+
+        <footer class="footer">
+            <img src="./assets/icons/footer.png" alt="footer description" />
+        </footer>
+    </body>
+</html>
