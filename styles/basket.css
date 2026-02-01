@@ -39,7 +39,6 @@
 .basket-items-list {
     max-height: 390px;
     overflow-y: auto;
-    overflow-x: hidden;
     padding-right: 5px;
 }
 
