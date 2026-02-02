@@ -1,3 +1,13 @@
+body.no-scroll {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+body.no-scroll::-webkit-scrollbar {
+    display: none;
+}
+
 /* Header & Navigation */
 .header {
     background-color: #e76c1f;

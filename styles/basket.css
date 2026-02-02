@@ -7,8 +7,6 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    position: sticky;
-    top: 24px;
     gap: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -18,6 +16,15 @@
     font-size: 24px;
     margin-bottom: 8px;
     font-family: "Palanquin", sans-serif;
+}
+
+.basket_stickyrail {
+    position: sticky;   
+    top: 24px;          
+    align-self: flex-start; 
+    z-index: 10;        
+    width: 350px;       
+    flex-shrink: 0;
 }
 
 .basket-item {
@@ -38,8 +45,8 @@
 
 .basket-items-list {
     max-height: 390px;
-    overflow-y: auto;
     padding-right: 5px;
+    overflow-y: auto;
 }
 
 .basket-item-info {

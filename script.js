@@ -135,46 +135,41 @@ import {
 function renderDishes() {
     const showRef = document.getElementById("imageDishes");
     if (!showRef) return;
-
     showRef.innerHTML = "";
     let currentCategory = "";
 
     for (let i = 0; i < myDishes.length; i++) {
         let dish = myDishes[i];
-
         if (dish.category !== currentCategory) {
             showRef.innerHTML += getCategoryTemplate(
-                dish.category,
-                dish.categoryIcon,
-            );
-            currentCategory = dish.category;
-        }
-
+                dish.category, dish.categoryIcon,);
+            currentCategory = dish.category;}
         showRef.innerHTML += getDishTemplate(dish, i);
     }
+}
+
+function getBasketContent(itemsInBasket) {
+    let subtotal = 0;
+    let basketHtml = `<h2>Your Basket</h2>`;
+    if (itemsInBasket.length === 0) {
+        return (
+            basketHtml + `<p class="empty-basket">Nothing here yet. <br> Go ahead and choose something!</p>`
+        );}
+    basketHtml += `<div class="basket-items-list">`;
+    for (let i = 0; i < myDishes.length; i++) {
+        if (myDishes[i].amount > 0) {
+            subtotal += myDishes[i].price * myDishes[i].amount;
+            basketHtml += getBasketItemTemplate(myDishes[i], i);
+        }}
+    return basketHtml + `</div>` + getBasketFinalTemplate(subtotal);
 }
 
 window.renderBasket = function () {
     const desktopBasket = document.getElementById("basket_responsive");
     const mobileBasket = document.getElementById("mobile_basket_content");
+    const itemsInBasket = myDishes.filter((dish) => dish.amount > 0);
 
-    let subtotal = 0;
-    let itemsInBasket = myDishes.filter((dish) => dish.amount > 0);
-    let basketHtml = `<h2>Your Basket</h2>`;
-
-    if (itemsInBasket.length === 0) {
-        basketHtml += `<p class="empty-basket">Nothing here yet. <br> Go ahead and choose something delicious!</p>`;
-    } else {
-        basketHtml += `<div class="basket-items-list">`;
-        for (let i = 0; i < myDishes.length; i++) {
-            if (myDishes[i].amount > 0) {
-                subtotal += myDishes[i].price * myDishes[i].amount;
-                basketHtml += getBasketItemTemplate(myDishes[i], i);
-            }
-        }
-        basketHtml += `</div>`;
-        basketHtml += getBasketFinalTemplate(subtotal);
-    }
+    const basketHtml = getBasketContent(itemsInBasket);
 
     if (desktopBasket) desktopBasket.innerHTML = basketHtml;
     if (mobileBasket) mobileBasket.innerHTML = basketHtml;
@@ -204,7 +199,6 @@ window.placeOrder = function () {
     dialog.showModal();
 
     myDishes.forEach((dish) => (dish.amount = 0));
-    renderDishes();
     renderBasket();
 };
 
@@ -215,17 +209,21 @@ window.closeOrderDialog = function () {
 
 window.openBasketOverlay = function () {
     const dialog = document.getElementById("basket_overlay");
-    if (dialog) dialog.showModal();
+    if (dialog) {
+        document.body.classList.add("no-scroll");
+        dialog.showModal();}
 };
 
 window.closeBasketOverlay = function () {
     const dialog = document.getElementById("basket_overlay");
-    if (dialog) dialog.close();
+    if (dialog) {
+document.body.classList.remove("no-scroll");
+        dialog.close();
+    }
 };
 
 window.addToBasket = function (i) {
     myDishes[i].amount++;
-    renderDishes();
     renderBasket();
 };
 
@@ -233,7 +231,6 @@ window.removeFromBasket = function (i) {
     if (myDishes[i].amount > 0) {
         myDishes[i].amount--;
     }
-    renderDishes();
     renderBasket();
 };
 
